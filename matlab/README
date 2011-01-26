@@ -1,0 +1,23 @@
+Author:  Chris Bates
+E-mail:  christopher.andrew.bates@gmail.com
+website:  www.thedatascientist.com
+
+Here are some example pieces of Matlab code I have decided to release into the wild.  
+
+A brief overview:
+
+- rvm - Relevance Vector Machine
+   This code is based in part off of Steve Gunn's Matlab code for Support Vector Machines (SVM).  My implementation of Relevance Vector Machines references Pattern Recognition and Machine Learning by Christopher Bishop, a researcher at Microsoft.
+
+   rvmreg.m  - Invoke to calculate RVM regression.  TODO: This code probably needs some cleaning up. 
+   rvcoutput.m - Code that will calculate the expected outputs of the regression in the form of percentages or binary classification.  You will need Steve Gunn's SV kernel.
+
+
+- fishers - 
+   fisherdisc.m  - A simple implementation of the Fisher's Linear Discriminant.
+
+- em -
+  EstGaussMix.m - This algorithm guesses mixture parameters of a dataset and calculates the proportion of the mixture to each component.
+  For example, let's say you have two 2D gaussian curves and mix then together.  From the algorithm's perspective, it doesn't know whether you've mixed 2 curves together or 100.  It doesn't even know if they are 2D or gaussian.  All it sees is datapoints.  The algorithm will then start off with a guess (either you supply it or the algorithm does if it is left out) and say there may be up to 10 components to the mixture.  After successive iterations, it will prune components that converge to some criteria.  At the end the algorithm returns its guess for how many components are in the mixture, the mixture proportions of each (maybe there is only 10% of one component and 90% of the other), and the means and covars of the data clusters. 
+  
+  This algorithm lets you specify whether to guess with Expectation Maximization (EM) or Variational Inference (VI) as a means to guess model parameters.  This file is fairly complex, so please e-mail me with questions!! It references PRML by Bishop.  
